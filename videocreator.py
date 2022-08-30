@@ -2,8 +2,8 @@ from moviepy.editor import TextClip
 import moviepy.editor as mp
 import moviepy.video.fx.all as vfx
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
-import glob
 import api
+import util.constants as Constants
 from moviepy.editor import *
 from html import unescape
 
@@ -21,11 +21,11 @@ def createVideoWithData():
         correct_answer = questionData[i].correct_answer
 
         startVideoTemplate = mp.VideoFileClip(
-            "assets/video-template.mp4")
+            Constants.VIDEO_TEMPLATE_PATH)
         endVideoTemplate = mp.VideoFileClip(
-            "assets/video-template.mp4")
+            Constants.VIDEO_TEMPLATE_PATH)
         videoTemplate = mp.VideoFileClip(
-            "assets/video-template.mp4")
+            Constants.VIDEO_TEMPLATE_PATH)
 
         startVideoClip = startVideoTemplate.subclip(0, 1)
         endVideoClip = endVideoTemplate.subclip(6, 11)
