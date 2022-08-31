@@ -45,7 +45,11 @@ def createVideoWithData():
         resultVideo = mp.concatenate_videoclips(
             [startVideoClip, questionVideo, answerClip])
 
-        resultVideo.write_videofile(f"output/{question}.mp4")
+        if os.path.exists('output'):
+            resultVideo.write_videofile(f"output/{question}.mp4")
+        else:
+            os.makedirs('output')
+            resultVideo.write_videofile(f"output/{question}.mp4")
 
 
 createVideoWithData()
